@@ -1,0 +1,40 @@
+body {
+  font-family: sans-serif;
+  background: #111;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  padding: 20px;
+  text-align: center;
+  background: #222;
+}
+
+input, select {
+  padding: 10px;
+  margin: 10px;
+  font-size: 1em;
+}
+
+#movieContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
+}
+
+.movie-card {
+  background: #333;
+  padding: 15px;
+  border-radius: 10px;
+  width: 200px;
+  text-align: center;
+}
+
+.movie-card img {
+  width: 100%;
+  border-radius: 10px;
+}
