@@ -160,3 +160,55 @@ button:hover:not(:disabled) {
     max-width: 320px;
   }
 }
+
+
+/* footerStyle */
+.login-footer {
+
+  position: fixed; 
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  background: rgba(0, 0, 0, 0.9); 
+  padding: 30px 15%; 
+  box-sizing: border-box; 
+}
+
+.login-footer p {
+  margin: 0 0 20px 0; /* Space below the "Questions?" text */
+  color: #757575; /* A standard grey for secondary text */
+}
+
+.login-footer ul {
+  /* Grid layout for the links */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 15px;
+
+
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.login-footer a {
+  color: #757575;
+  text-decoration: none; 
+  font-size: 0.8rem;
+}
+
+.login-footer a:hover {
+  text-decoration: underline; 
+}
+@media (max-width: 768px) {
+
+  .login-footer ul {
+   
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .login-footer {
+    padding: 20px 5%; 
+  }
+}
