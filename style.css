@@ -140,3 +140,18 @@ button:hover:not(:disabled) {
 .forgot-password:hover {
   color: #fff;
 }
+
+
+@media (max-width: 768px) {
+  .logo {
+    font-size: 2rem; 
+    left: 20px;      
+    top: 15px;       
+  }
+  .auth-container {
+    width: 90%;      
+    padding: 25px;   
+    max-width: 320px;
+  }
+
+}
