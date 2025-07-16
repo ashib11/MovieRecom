@@ -1,14 +1,17 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden; 
+}
 body {
 
   color: #fff;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
-  height: 100vh;
   justify-content: center;
   align-items: center;
-  margin: 0;
   position: relative;
-  overflow: hidden;
 }
 
 body::before {
@@ -155,10 +158,5 @@ button:hover:not(:disabled) {
     width: 90%;
     padding: 25px;
     max-width: 320px;
-  }
-
-  html,
-  body {
-    overflow: hidden;
   }
 }
