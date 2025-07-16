@@ -1,28 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Movie Recommendation App</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Movie Recommendation App</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
 </head>
+
 <body>
-  <header>
-    <h1>🎬 Movie Recommender</h1>
-    <input type="text" id="searchInput" placeholder="Search for a movie...">
-    <select id="genreFilter">
-      <option value="all">All Genres</option>
-      <option value="Action">Action</option>
-      <option value="Comedy">Comedy</option>
-      <option value="Drama">Drama</option>
-      <!-- Add more genres -->
-    </select>
-  </header>
+    <header>
+        <h1>🎬 Movie Recommender</h1>
+        <input type="text" id="searchInput" placeholder="Search for a movie..." />
+        <select id="genreFilter">
+            <option value="all">All Genres</option>
+            <option value="Action">Action</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Drama">Drama</option>
+        </select>
+        <button id="logoutBtn">Logout</button>
+    </header>
 
-  <main id="movieContainer">
-    <!-- Movies will load here -->
-  </main>
+    <main id="movieContainer"></main>
 
-  <script src="script.js"></script>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyBF1cn4PIeBleA829KzhBhNhhSWpP0NixI",
+            authDomain: "movierecommendation-c0d63.firebaseapp.com",
+            projectId: "movierecommendation-c0d63",
+            storageBucket: "movierecommendation-c0d63.firebasestorage.app",
+            messagingSenderId: "732786819066",
+            appId: "1:732786819066:web:cb79d3e76e19228669ee43",
+            measurementId: "G-XLZDXBZTC1"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+
+        // Redirect to login if not authenticated
+        auth.onAuthStateChanged(user => {
+            if (!user) {
+                window.location.href = "landing.html";
+            }
+        });
+
+        document.getElementById("logoutBtn").onclick = () => {
+            auth.signOut().then(() => {
+                window.location.href = "landing.html";
+            });
+        };
+
+        // TODO: Add your movie app logic here (load, filter, search movies)
+    </script>
+    <script src="script.js"></script>
 </body>
+
 </html>

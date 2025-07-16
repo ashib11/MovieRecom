@@ -1,45 +1,58 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const container = document.getElementById("movieContainer");
-  const searchInput = document.getElementById("searchInput");
-  const genreFilter = document.getElementById("genreFilter");
+// Example skeleton for loading movies from local JSON (or Firebase Firestore later)
 
-  let movies = [];
+const movies = [
+  {
+    title: "Inception",
+    genre: "Action",
+    year: 2010,
+    poster: "https://image.tmdb.org/t/p/w500/qmDpIHrmpJINaRKAfWQfftjCdyi.jpg",
+  },
+  {
+    title: "The Hangover",
+    genre: "Comedy",
+    year: 2009,
+    poster: "https://image.tmdb.org/t/p/w500/8vNruSfhk5IoE4eZOc4UpvDn6tq.jpg",
+  },
+  // Add more movies here
+];
 
-  // Load movie data
-  fetch("movies.json")
-    .then(res => res.json())
-    .then(data => {
-      movies = data;
-      renderMovies(movies);
-    });
+const movieContainer = document.getElementById("movieContainer");
+const searchInput = document.getElementById("searchInput");
+const genreFilter = document.getElementById("genreFilter");
 
-  function renderMovies(movieList) {
-    container.innerHTML = "";
-    movieList.forEach(movie => {
-      const movieCard = document.createElement("div");
-      movieCard.className = "movie-card";
-      movieCard.innerHTML = `
-        <img src="${movie.poster}" alt="${movie.title}">
-        <h3>${movie.title} (${movie.year})</h3>
-        <p><strong>Genre:</strong> ${movie.genre}</p>
-        <p>${movie.description}</p>
-        <p><strong>Rating:</strong> ⭐ ${movie.rating}</p>
-      `;
-      container.appendChild(movieCard);
-    });
+function displayMovies(movieList) {
+  movieContainer.innerHTML = "";
+  if (movieList.length === 0) {
+    movieContainer.innerHTML = "<p>No movies found.</p>";
+    return;
   }
 
-  // Search functionality
-  searchInput.addEventListener("input", () => {
-    const query = searchInput.value.toLowerCase();
-    const filtered = movies.filter(m => m.title.toLowerCase().includes(query));
-    renderMovies(filtered);
+  movieList.forEach((movie) => {
+    const movieEl = document.createElement("div");
+    movieEl.className = "movie-card";
+    movieEl.innerHTML = `
+      <img src="${movie.poster}" alt="${movie.title}" width="150" />
+      <h3>${movie.title} (${movie.year})</h3>
+      <p><strong>Genre:</strong> ${movie.genre}</p>
+    `;
+    movieContainer.appendChild(movieEl);
+  });
+}
+
+function filterMovies() {
+  const searchText = searchInput.value.toLowerCase();
+  const selectedGenre = genreFilter.value;
+
+  const filtered = movies.filter((movie) => {
+    const matchesGenre = selectedGenre === "all" || movie.genre === selectedGenre;
+    const matchesSearch = movie.title.toLowerCase().includes(searchText);
+    return matchesGenre && matchesSearch;
   });
 
-  // Filter by genre
-  genreFilter.addEventListener("change", () => {
-    const selected = genreFilter.value;
-    const filtered = selected === "all" ? movies : movies.filter(m => m.genre === selected);
-    renderMovies(filtered);
-  });
-});
+  displayMovies(filtered);
+}
+
+searchInput.addEventListener("input", filterMovies);
+genreFilter.addEventListener("change", filterMovies);
+
+displayMovies(movies);
