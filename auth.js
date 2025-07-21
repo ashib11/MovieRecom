@@ -21,15 +21,6 @@ const togglePassword = document.getElementById('togglePassword');
 const forgotPasswordBtn = document.getElementById('forgotPasswordBtn');
 
 
-togglePassword.addEventListener('click', () => {
-    if (passwordInput.type === 'password') {
-        passwordInput.type = 'text';
-        togglePassword.textContent = 'Hide password';
-    } else {
-        passwordInput.type = 'password';
-        togglePassword.textContent = 'Show password';
-    }
-});
 
 
 function setLoading(isLoading) {
@@ -151,5 +142,33 @@ forgotPasswordBtn.onclick = () => {
 auth.onAuthStateChanged(user => {
     if (user) {
         window.location.href = 'index.html';
+    }
+});
+
+
+const database = firebase.database(); 
+const tempValueElement = document.getElementById('temp-value');
+const humValueElement = document.getElementById('hum-value');
+
+// Create a reference to the '/sensors' path in your database
+const sensorRef = database.ref('/sensors');
+
+// Listen for changes to the data at that path
+sensorRef.on('value', (snapshot) => {
+  const data = snapshot.val(); // Get the data object
+  if (data) {
+    // Update the HTML with the new values
+    tempValueElement.textContent = data.temperature.toFixed(1);
+    humValueElement.textContent = data.humidity.toFixed(1);
+  }
+});
+
+togglePassword.addEventListener('click', () => {
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        togglePassword.textContent = 'Hide password';
+    } else {
+        passwordInput.type = 'password';
+        togglePassword.textContent = 'Show password';
     }
 });

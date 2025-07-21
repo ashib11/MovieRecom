@@ -212,3 +212,26 @@ button:hover:not(:disabled) {
     padding: 20px 5%; 
   }
 }
+
+#sensor-data {
+  /* Positioning */
+  position: absolute; /* Positions it relative to the viewport */
+  top: 25px;          /* Aligns vertically with the logo */
+  right: 40px;        /* Positions it on the right side */
+
+  /* Styling */
+  color: #ccc;       /* A light grey color so it doesn't compete with the logo */
+  font-size: 0.9rem;
+}
+@media (max-width: 768px) {
+  /* ... your existing mobile styles for .logo and .auth-container ... */
+
+  #sensor-data {
+    /* On mobile, center the text at the top */
+    width: 100%;
+    text-align: center;
+    top: 60px;  /* Move it down below the logo */
+    left: 0;
+    right: 0;   /* Reset left/right to allow for centering */
+  }
+}
