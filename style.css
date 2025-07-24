@@ -13,8 +13,32 @@ body {
   align-items: center;
   position: relative;
 }
+#homePage {
+  position: relative;
+  isolation: isolate;
 
-body::before {
+  background-color: #141414;
+  color: #fff;
+}
+
+#homePage::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+
+  background-image: url('images/homePage/home1.png');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  filter: blur(5px) brightness(65%);
+}
+
+
+#loginPage::before {
   content: '';
   position: absolute;
   top: 0;
@@ -162,8 +186,16 @@ button:hover:not(:disabled) {
 }
 
 
-/* footerStyle */
-.login-footer {
+
+
+
+
+
+
+
+
+/* footer for looginpage */
+#loginPage .login-footer {
 
   position: fixed; 
   bottom: 0;
@@ -175,13 +207,13 @@ button:hover:not(:disabled) {
   box-sizing: border-box; 
 }
 
-.login-footer p {
-  margin: 0 0 20px 0; /* Space below the "Questions?" text */
-  color: #757575; /* A standard grey for secondary text */
+#loginPage .login-footer p {
+  margin: 0 0 20px 0; 
+  color: #757575; 
 }
 
-.login-footer ul {
-  /* Grid layout for the links */
+#loginPage .login-footer ul {
+  
   display: grid;
   grid-template-columns: repeat(4, 1fr); 
   gap: 15px;
@@ -192,46 +224,24 @@ button:hover:not(:disabled) {
   margin: 0;
 }
 
-.login-footer a {
+#loginPage .login-footer a {
   color: #757575;
   text-decoration: none; 
   font-size: 0.8rem;
 }
 
-.login-footer a:hover {
+#loginPage .login-footer a:hover {
   text-decoration: underline; 
 }
 @media (max-width: 768px) {
 
-  .login-footer ul {
+  #loginPage .login-footer ul {
    
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .login-footer {
+  #loginPage.login-footer {
     padding: 20px 5%; 
   }
 }
 
-#sensor-data {
-  /* Positioning */
-  position: absolute; /* Positions it relative to the viewport */
-  top: 25px;          /* Aligns vertically with the logo */
-  right: 40px;        /* Positions it on the right side */
-
-  /* Styling */
-  color: #ccc;       /* A light grey color so it doesn't compete with the logo */
-  font-size: 0.9rem;
-}
-@media (max-width: 768px) {
-  /* ... your existing mobile styles for .logo and .auth-container ... */
-
-  #sensor-data {
-    /* On mobile, center the text at the top */
-    width: 100%;
-    text-align: center;
-    top: 60px;  /* Move it down below the logo */
-    left: 0;
-    right: 0;   /* Reset left/right to allow for centering */
-  }
-}

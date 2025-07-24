@@ -1,0 +1,222 @@
+/* ======================================= */
+/* 1. Global Styles & Variables            */
+/* ======================================= */
+:root {
+  --primary-color: #e50914; /* Netflix Red */
+  --dark-color: #141414;
+  --light-gray: #757575;
+  --white-color: #ffffff;
+}
+
+/* Base styles for the page */
+html {
+  scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+}
+
+body#homePage {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--dark-color);
+  color: var(--white-color);
+  position: relative;
+  isolation: isolate; /* Creates a stacking context for the ::before element */
+}
+
+a {
+  color: var(--white-color);
+  text-decoration: none;
+}
+
+h1, h2, h3 {
+  margin: 0 0 1rem 0;
+}
+
+/* ======================================= */
+/* 2. Page Background Effect             */
+/* ======================================= */
+body#homePage::before {
+  content: '';
+  position: fixed; /* Fixed position so it stays in place on scroll */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  
+  background-image: url('images/homePage/home1.png'); /* Your background image */
+  background-size: cover;
+  background-position: center center;
+  filter: blur(5px) brightness(50%);
+}
+
+/* ======================================= */
+/* 3. Header / Navigation Bar            */
+/* ======================================= */
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+  position: relative;
+}
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 25px; /* Creates space between the nav links and the login button */
+}
+
+.logo a {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: var(--primary-color);
+  text-transform: uppercase;
+}
+
+.main-nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.main-nav ul li {
+  margin-left: 25px;
+}
+
+.main-nav ul a:hover {
+  color: var(--primary-color);
+}
+
+.btn {
+  padding: 8px 16px;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  border-radius: 5px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #b20710;
+}
+
+/* ======================================= */
+/* 4. Hero Section                       */
+/* ======================================= */
+#hero {
+  /* Height is now controlled by padding */
+  padding-top: 70px;    /* Pushes content down from the header */
+  padding-bottom: 15px;  /* This creates your exact 10px gap */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.btn-primary {
+  font-size: 1.1rem;
+  padding: 12px 24px;
+}
+
+/* ======================================= */
+/* 5. Content Sections                   */
+/* ======================================= */
+main {
+  display: block; /* Ensures main content sections flow correctly */
+}
+
+#featured-movies, #why-choose-us {
+  padding: 20px 5%;
+  text-align: center;
+}
+
+#featured-movies h2, #why-choose-us h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+/* Movie Grid & Cards */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 45px;
+}
+
+.movie-card {
+  background: #222;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+.movie-card img {
+  width: 100%;
+  display: block;
+
+  /* --- Add these two lines --- */
+  aspect-ratio: 2 / 2.5; /* Common movie poster ratio (width / height) */
+  object-fit: cover;   /* Prevents distortion if the source image is a different shape */
+}
+.movie-card:hover {
+    transform: scale(1.10);
+}
+
+.movie-card img {
+  width: 100%;
+  display: block;
+}
+
+.movie-card h3 {
+  font-size: 1.1rem;
+  padding: 15px;
+  margin: 0;
+}
+
+
+/* "Why Choose Us" Features */
+#why-choose-us{
+  padding-top: 100px;
+}
+
+.features {
+  display: flex;
+  justify-content: space-around;
+  gap: 30px;
+  text-align: left;
+}
+
+.feature-item {
+  flex-basis: 30%;
+}
+
+/* ======================================= */
+/* 6. Mobile Responsiveness              */
+/* ======================================= */
+@media (max-width: 768px) {
+  .main-nav {
+    display: none; /* Hide nav links on mobile */
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  
+  .features {
+    flex-direction: column; /* Stack features vertically */
+  }
+}
