@@ -1,0 +1,212 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden; 
+}
+body {
+  /* overflow: auto; */
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+#homePage {
+  position: relative;
+  isolation: isolate;
+
+  background-color: #141414;
+  color: #fff;
+}
+
+#homePage::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+
+  background-image: url('/images/homePage/home1.png');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  filter: blur(5px) brightness(65%);
+}
+
+
+#loginPage::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-image: url('/images/landingpage/landing.png');
+
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+
+  filter: brightness(50%) blur(3px);
+
+
+  z-index: -1;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transform: scale(1.2) rotate(-10deg) rotate(5deg);
+}
+
+
+.login-container {
+
+  background: rgba(20, 20, 20, 0.3);
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.auth-container {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+
+  margin-bottom: 100px;
+  padding: 30px 40px;
+  border-radius: 10px;
+  width: 320px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 200px;
+
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #E50914;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+  width: 100%;
+  padding: 12px 10px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border: none;
+  font-size: 16px;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+
+button {
+  width: 48%;
+  padding: 12px 0;
+  margin: 8px 1%;
+  border-radius: 6px;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  color: white;
+  background-color: #e50914;
+  transition: background-color 0.3s ease;
+}
+
+button:disabled {
+  background-color: #8a000d;
+  cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+  background-color: #b20710;
+}
+
+#authMessage {
+  margin-top: 15px;
+  min-height: 20px;
+  font-size: 14px;
+  color: #f44336;
+
+}
+
+.success {
+  color: #4CAF50;
+}
+
+.toggle-password {
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #bbb;
+  cursor: pointer;
+  user-select: none;
+  text-align: right;
+}
+
+.forgot-password {
+  font-size: 14px;
+  margin-top: 10px;
+  cursor: pointer;
+  color: #888;
+  text-decoration: underline;
+}
+
+.forgot-password:hover {
+  color: #fff;
+}
+
+
+#loginPage .login-footer {
+
+  position: fixed; 
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  background: rgba(0, 0, 0, 0.9); 
+  padding: 15px 10%; 
+  box-sizing: border-box; 
+}
+
+#loginPage .login-footer p {
+  margin: 0 0 20px 0; 
+  color: #757575; 
+}
+
+#loginPage .login-footer ul {
+  
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 15px;
+
+
+  list-style-type: none;
+  padding: 0;
+  margin-top: 0;
+}
+
+#loginPage .login-footer a {
+  color: #757575;
+  text-decoration: none; 
+  font-size: 0.8rem;
+}
+
+#loginPage .login-footer a:hover {
+  text-decoration: underline; 
+}
+

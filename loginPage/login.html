@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MovieRecom - Login / Sign Up</title>
+  <link rel="stylesheet" href="/loginPage/login.css" />
+
+
+</head>
+
+<body id="loginPage">
+  <div class="logo">MovieRecom</div>
+
+
+
+  <div class="auth-container" role="main">
+    <h2>Login or Register</h2>
+    <input type="email" id="emailInput" placeholder="Email" aria-label="Email address" required />
+    <input type="password" id="passwordInput" placeholder="Password" aria-label="Password" required />
+    <div class="toggle-password" id="togglePassword">Show password</div>
+    <div>
+      <button id="loginBtn">Login</button>
+      <button id="signupBtn">Sign Up</button>
+    </div>
+    <div id="authMessage" aria-live="polite"></div>
+    <div class="forgot-password" id="forgotPasswordBtn">Forgot Password?</div>
+  </div>
+
+  <footer class="login-footer">
+    <p>Questions? Contact us.</p>
+    <ul>
+      <li><a href="#">FAQ</a></li>
+      <li><a href="#">Help Center</a></li>
+      <li><a href="#">Terms of Use</a></li>
+      <li><a href="#">Privacy</a></li>
+      <li><a href="#">Corporate Information</a></li>
+    </ul>
+
+
+  </footer>
+
+</body>
+
+</html>
+
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+<script src="/auth.js"></script>
+<script src="/loginPage/login.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,166 @@
+
+:root {
+  --primary-color: #e50914; 
+  --dark-color: #141414;
+  --light-gray: #757575;
+  --white-color: #ffffff;
+}
+
+
+html {
+  scroll-behavior: smooth; 
+}
+
+body#homePage {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--dark-color);
+  color: var(--white-color);
+  position: relative;
+  isolation: isolate; 
+}
+
+a {
+  color: var(--white-color);
+  text-decoration: none;
+}
+
+h1, h2, h3 {
+  margin: 0 0 1rem 0;
+}
+
+
+body#homePage::before {
+  content: '';
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  
+  background-image: url('/images/homePage/home1.png'); 
+  background-size: cover;
+  background-position: center center;
+  filter: blur(5px) brightness(50%);
+}
+
+
+
+#hero {
+
+  padding-top: 70px;  
+  padding-bottom: 15px;  
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+.exploreBtn {
+  display: inline-block;
+  padding: 20px 15px;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  border: none;             
+  text-decoration: none;      
+  border-radius: 5px;
+  font-weight: 600;
+  font-family: inherit;      
+  font-size: inherit;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  line-height: normal;
+}
+
+.exploreBtn:hover {
+  background-color: #b20710;
+  transform: scale(1.05);
+}
+
+.btn-primary {
+  font-size: 1.5rem;
+  padding: 12px 24px;
+}
+
+main {
+  display: block; 
+}
+
+#featured-movies, #why-choose-us {
+  padding: 20px 5%;
+  text-align: center;
+}
+
+#featured-movies h2, #why-choose-us h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+
+.movie-grid {
+  display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 45px;
+}
+
+.movie-card {
+  background: #222;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+.movie-card img {
+  width: 100%;
+  display: block;
+
+  
+  aspect-ratio: 2 / 2.5; 
+  object-fit: cover;  
+}
+.movie-card:hover {
+    transform: scale(1.10);
+}
+
+.movie-card img {
+  width: 100%;
+  display: block;
+}
+
+.movie-card h3 {
+  font-size: 1.1rem;
+  padding: 15px;
+  margin: 0;
+}
+
+
+
+#why-choose-us{
+  padding-top: 100px;
+}
+
+.features {
+  display: flex;
+  justify-content: space-around;
+  gap: 30px;
+  text-align: left;
+}
+
+.feature-item {
+  flex-basis: 30%;
+}
+

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Movie Lists</title>
+    <link rel="stylesheet" href="mylists.css" />
+</head>
+<body id="myListsPage">
+
+    <div id="navbar-placeholder"></div>
+
+    <main class="content-container">
+        <section id="watch-later-section">
+            <h2>Watch Later</h2>
+            <div id="watchLaterContainer" class="movie-grid">
+                </div>
+        </section>
+
+        <section id="watched-section">
+            <h2>Watched</h2>
+            <div id="watchedContainer" class="movie-grid">
+                </div>
+        </section>
+    </main>
+
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+    <script src="/auth.js"></script>
+    <script src="mylists.js"></script>
+
+</body>
+</html>
